@@ -5,6 +5,6 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'ingeneous_site.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'', include('story.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
