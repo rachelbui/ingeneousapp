@@ -1,21 +1,16 @@
-<html>
-  <head>
-      <title> Welcome to Ingeneous</title>
-  </head>
-  <body>
-    <div>
-      <h1><a href="http://ingeneous.pythonanywhere.com">Ingeneous</a></h1>
-    </div>
+{% extends 'story/base.html' %}
 
-    {% for story_post in story_posts %}
+#Block Content in post_list is added into base.html
 
-    <div>
-        <h1><a href=""> {{ story_post.title }}</a></h1>
-        <p>published: {{ story_post.published_date }}</p>
-        <p> {{ post.text|linebreaks }}</p>
-    </div>
+{% block content %}
 
-    {% endfor %}
+  {% for story_post in story_posts %}
+  <div class="post"> <div class="date">
+  {{ story_post.published_date }}
+  </div>
+  <h1><a href="{% url 'story.views.post_detail' pk=post.pk %}">{{ story_post.title }}">{{ story_post.title }}</a></h1> <p>{{story_post.text|linebreaks }}</p>
+  </div> {% endfor %}
 
-  </body>
+{% endblock content %}
+
 </html>
